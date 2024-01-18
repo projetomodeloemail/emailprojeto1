@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modelos de E-mail</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Modelos de E-mail</h1>
+      <input
+        type="text"
+        id="busca"
+        placeholder="Buscar modelos por título"
+        onkeyup="buscarModelos()"
+      />
+      <link rel="stylesheet" href="parte.css" />
+      <a href="https://www.prosegur.com.br/" target="_blank">
+      <img class="imagem" src="logopro.jpeg" />
+      </a>
+      <!-- Botões de Departamento -->
+      <button
+        class="departamento-btn"
+        onclick="exibirModelos('todos', 'Todos os Departamentos')"
+      >
+        Todos os Departamentos
+      </button>
+      <button
+        class="departamento-btn"
+        onclick="exibirModelos('privado', 'Bancos Privados')"
+      >
+        Bancos Privados
+      </button>
+      <button
+        class="departamento-btn"
+        onclick="exibirModelos('corporativo', 'Adm Corporativo')"
+      >
+        Adm Corporativo
+      </button>
+      <button
+        class="departamento-btn"
+        onclick="exibirModelos('regional', 'Adm Regional')"
+      >
+        Adm Regional
+      </button>
+      <button
+        class="departamento-btn"
+        onclick="exibirModelos('publicos', 'Bancos Publicos')"
+      >
+        Bancos Publicos
+      </button>
+
+      <button
+      class="departamento-btn"
+      onclick="exibirModelos('cofres', 'Cofres Cash')"
+    >
+      Cofres Cash
+    </button>
+
+    <button id="adicionar-btn" onclick="exibirFormulario()">
+      Adicionar Modelo
+    </button>
+    <button id= "excluirModelosSelecionados"  onclick="excluirModelosSelecionados()">
+      Excluir Modelos Selecionados
+    </button>
+
+
+      <!-- Indicação da aba atual -->
+      <p>
+      <span id="aba-atual">Todos os Departamentos</span>
+      </p>
+
+      <!-- Modelos de E-mail -->
+      <div id="privadoContainer" class="departamento-container"></div>
+      <div id="corporativoContainer" class="departamento-container"></div>
+      <div id="regionalContainer" class="departamento-container"></div>
+      <div id="publicosContainer" class="departamento-container"></div>
+      <div id="cofresContainer" class="departamento-container"></div>
+
+
+      <div id="modelo-form" style="display: none">
+        <form>
+          <label for="titulo">Título do Modelo:</label>
+          <input type="text" id="titulo" required autocomplete="off" /><br />
+
+          <label for="departamento">Departamento do Modelo:</label>
+          <select id="departamento" required>
+            <option value="privado">Bancos Privados</option>
+            <option value="corporativo">ADM Corporativo</option>
+            <option value="regional">ADM Regional</option>
+            <option value="publicos">Bancos Publicos</option>
+            <option value="cofres">Cofres Cash</option>
+            </select
+          ><br />
+
+          <label for="texto">Texto do Modelo:</label><br />
+          <div
+            class="caixinha-texto"
+            contenteditable="true"
+            id="texto"
+            required
+          ></div>
+          <br />
+
+          <button type="button" id="cancelar-btn" onclick="limparFormulario()">
+            Cancelar
+            
+          </button>
+          <button type="submit" id="salvarint" >Salvar</button>
+        </form>
+      </div>
+
+  
+
+      
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
